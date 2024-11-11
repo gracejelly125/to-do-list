@@ -1,7 +1,10 @@
+import { TodoContext } from "../context/TodoProvider";
 import { Button, StyleBox, StyleTodoForm } from "../styled-components/styled-todoList";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = () => {
+  const { todos, setTodos } = useContext(TodoContext); 
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 

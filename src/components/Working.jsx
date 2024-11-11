@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Button,
   ButtonGroup,
@@ -7,11 +8,13 @@ import {
   StyleWorking,
   Title,
 } from "../styled-components/styled-todoList";
+import { TodoContext } from "../context/TodoProvider";
 
-const Working = ({ todos, setTodos, setFinishedTodos }) => {
+const Working = () => {
+  const { todos, setTodos, setFinishedTodos } = useContext(TodoContext);
+
   const DeleteTodoHandler = (todoToDelete) => {
-    const deletedTodos = todos.filter((todo) => todo.id !== todoToDelete);
-    setTodos(deletedTodos);
+    setTodos(todos.filter((todo) => todo.id !== todoToDelete));
   };
 
   const finishTodoHandler = (todoToFinish) => {
