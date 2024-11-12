@@ -1,26 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Content,
-  StyleBox,
-  StyleWorking,
-  Title,
-} from "../styled-components/styled-todoList";
+import { Container, StyleBox } from "../styled-components/styled-todoList";
 import { deleteFinishedTodo } from "../redux/slices/doneSlice";
 import { addTodo } from "../redux/slices/workingSlice";
+import TodoItem from "./Working";
 
 const Done = () => {
   const todos = useSelector((state) => state.working);
   const finishedTodos = useSelector((state) => state.done);
   const dispatch = useDispatch();
 
-  const DeleteTodoHandler = (todoToDelete) => {
+  const handleDeleteTodo = (todoToDelete) => {
     dispatch(deleteFinishedTodo(todoToDelete));
   };
 
-  const cancelTodoHandler = (todoToCancel) => {
+  const handleCancelTodo = (todoToCancel) => {
     dispatch(deleteFinishedTodo(todoToCancel));
     const canceledTodo = finishedTodos.find((todo) => todo.id === todoToCancel);
     if (canceledTodo) {
@@ -34,24 +27,13 @@ const Done = () => {
         <p>Done 🎁</p>
         <Container>
           {finishedTodos.map((todo) => (
-            <StyleWorking key={todo.id}>
-              <Title>{todo.title}</Title>
-              <Content>{todo.content}</Content>
-              <ButtonGroup>
-                <Button
-                  type="button"
-                  onClick={() => DeleteTodoHandler(todo.id)}
-                >
-                  삭제하기
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => cancelTodoHandler(todo.id)}
-                >
-                  취소
-                </Button>
-              </ButtonGroup>
-            </StyleWorking>
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              buttonText={"취소"}
+              deleteButtonHandler={handleDeleteTodo}
+              cancelButtonHandler={handleCancelTodo}
+            />
           ))}
         </Container>
       </StyleBox>

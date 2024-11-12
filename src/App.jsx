@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import Done from "./components/Done";
 import Header from "./components/Header";
-import TodoList from "./components/TodoList";
-import Working from "./components/Working";
 import { useEffect } from "react";
+import TodoForm from "./components/TodoForm";
+import Working from "./components/Working";
+import Done from "./components/Done";
 
 const App = () => {
   const todos = useSelector((state) => state.working);
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <TodoList />
+      <TodoForm />
       <Working />
       <Done />
     </>
