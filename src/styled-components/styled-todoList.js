@@ -19,6 +19,11 @@ export const StyleWorking = styled.div`
   align-content: center;
 `;
 
+export const Msg = styled.p`
+  margin: 20px;
+  text-align: center;
+`
+
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;

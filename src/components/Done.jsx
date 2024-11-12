@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Container, StyleBox } from "../styled-components/styled-todoList";
+import { Container, Msg, StyleBox } from "../styled-components/styled-todoList";
 import { deleteFinishedTodo } from "../redux/slices/doneSlice";
 import { addTodo } from "../redux/slices/workingSlice";
 import TodoItem from "./TodoItem";
@@ -22,9 +22,11 @@ const Done = () => {
   };
 
   return (
-    <>
-      <StyleBox>
-        <p>Done 🎁</p>
+    <StyleBox>
+      <p>Done 🎁</p>
+      {finishedTodos.length === 0 ? (
+        <Msg>아직 완료된 리스트가 없습니다.</Msg>
+      ) : (
         <Container>
           {finishedTodos.map((todo) => (
             <TodoItem
@@ -36,8 +38,8 @@ const Done = () => {
             />
           ))}
         </Container>
-      </StyleBox>
-    </>
+      )}
+    </StyleBox>
   );
 };
 
