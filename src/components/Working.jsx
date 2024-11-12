@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Button,
   ButtonGroup,
@@ -8,23 +7,24 @@ import {
   StyleWorking,
   Title,
 } from "../styled-components/styled-todoList";
-import { TodoContext } from "../context/TodoProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { addFinishedTodo } from "../redux/slices/doneSlice";
+import { deleteTodo } from "../redux/slices/workingSlice";
 
 const Working = () => {
-  const { todos, setTodos, setFinishedTodos } = useContext(TodoContext);
+  const todos = useSelector((state) => state.working);
+  const finishedTodos = useSelector((state) => state.done);
+  const dispatch = useDispatch();
 
   const DeleteTodoHandler = (todoToDelete) => {
-    setTodos(todos.filter((todo) => todo.id !== todoToDelete));
+    dispatch(deleteTodo(todoToDelete));
   };
 
   const finishTodoHandler = (todoToFinish) => {
-    setTodos(todos.filter((todo) => todo.id !== todoToFinish));
+    dispatch(deleteTodo(todoToFinish));
     const finishedTodo = todos.find((todo) => todo.id === todoToFinish);
     if (finishedTodo) {
-      setFinishedTodos((prevFinishedTodos) => [
-        ...prevFinishedTodos,
-        finishedTodo,
-      ]);
+      dispatch(addFinishedTodo(finishedTodo));
     }
   };
 

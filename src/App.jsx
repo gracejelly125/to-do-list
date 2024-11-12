@@ -1,20 +1,26 @@
+import { useSelector } from "react-redux";
 import Done from "./components/Done";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import Working from "./components/Working";
-import TodoProvider from "./context/TodoProvider";
+import { useEffect } from "react";
 
 const App = () => {
-  // 내가 구독하고 있는 대상이 바뀌면 리렌더링 하겠다.
+  const todos = useSelector((state) => state.working);
+  const finishedTodos = useSelector((state) => state.done);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("finishedTodos", JSON.stringify(finishedTodos));
+  }, [todos, finishedTodos]);
+
   return (
-    <div>
+    <>
       <Header />
-      <TodoProvider>
-        <TodoList />
-        <Working />
-        <Done />
-      </TodoProvider>
-    </div>
+      <TodoList />
+      <Working />
+      <Done />
+    </>
   );
 };
 

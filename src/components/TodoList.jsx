@@ -1,16 +1,23 @@
-import { TodoContext } from "../context/TodoProvider";
-import { Button, StyleBox, StyleTodoForm } from "../styled-components/styled-todoList";
-import { useContext, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Button,
+  StyleBox,
+  StyleTodoForm,
+} from "../styled-components/styled-todoList";
+import { addTodo } from "../redux/slices/workingSlice";
+import { useState } from "react";
 
 const TodoList = () => {
-  const { todos, setTodos } = useContext(TodoContext); 
-
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const todos = useSelector((state) => state.working);
+  const dispatch = useDispatch();
+
   const addTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([...todos, { id: Date.now(), title, content }]);
+    const newTodo = { id: Date.now(), title, content };
+    dispatch(addTodo(newTodo));
     setTitle("");
     setContent("");
   };
@@ -35,7 +42,9 @@ const TodoList = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-            <Button type="submit" $primary>추가하기</Button>
+            <Button type="submit" $primary>
+              추가하기
+            </Button>
           </form>
         </StyleTodoForm>
       </StyleBox>
