@@ -34,6 +34,7 @@ const TodoForm = () => {
               placeholder="제목을 입력해주세요."
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
             />
             <p>내용</p>
             <input
@@ -41,6 +42,7 @@ const TodoForm = () => {
               placeholder="내용을 입력해주세요."
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              required
             />
             <Button type="submit" $primary>
               추가하기
