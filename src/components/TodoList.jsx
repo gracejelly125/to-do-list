@@ -19,7 +19,7 @@ const TodoList = () => {
     <>
       <StyleBox>
         <StyleTodoForm>
-          <p>TodoList</p>
+          <p>TodoList ⛄</p>
           <form onSubmit={addTodoHandler}>
             <p>제목</p>
             <input

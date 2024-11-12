@@ -10,7 +10,6 @@ import {
 } from "../styled-components/styled-todoList";
 import { TodoContext } from "../context/TodoProvider";
 
-// List의 Item으로 map으로 그려지는 경우는 props를 받아야 한다.
 const Done = () => {
   const { setTodos, finishedTodos, setFinishedTodos } = useContext(TodoContext);
 
@@ -29,7 +28,7 @@ const Done = () => {
   return (
     <>
       <StyleBox>
-        <p>Done</p>
+        <p>Done 🎁</p>
         <Container>
           {finishedTodos.map((todo) => (
             <StyleWorking key={todo.id}>

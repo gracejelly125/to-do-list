@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <>
       <Title>
-        <p>My Todo List</p>
-        <p>React</p>
+        <p>My Todo List 🎅</p>
+        <p>🤶 React</p>
       </Title>
     </>
   );

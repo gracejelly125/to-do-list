@@ -4,7 +4,7 @@ export const StyleBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid green;
   border-radius: 10px;
   margin: 20px 10px;
 `;
@@ -12,10 +12,10 @@ export const StyleBox = styled.div`
 export const StyleWorking = styled.div`
   margin: 20px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid red;
   border-radius: 10px;
   width: 200px;
-  height: 110px;
+  height: 120px;
   align-content: center;
 `;
 
@@ -45,22 +45,22 @@ export const ButtonGroup = styled.div`
 export const Button = styled.button`
   width: 100px;
   border: none;
-  border-radius: 8px;
-  background-color: black;
+  border-radius: 6px;
+  background-color: green;
   color: white;
   padding: 6px;
   margin-left: ${(props) => props.$primary && "auto"};
 
   &:hover {
     cursor: pointer;
-    background-color: hotpink;
+    background-color: red;
   }
 `;
 
 export const StyleTodoForm = styled.div`
   form {
     display: flex;
-    margin: 10px 5px 0;
+    margin: 20px 5px 0;
     gap: 10px;
     align-items: center;
   }
@@ -70,7 +70,8 @@ export const StyleTodoForm = styled.div`
     display: flex;
     font-size: 14px;
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 8px;
   }
+
 `;
