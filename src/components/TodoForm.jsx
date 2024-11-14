@@ -5,7 +5,7 @@ import {
   StyleTodoForm,
 } from "../styled-components/styled-todoList";
 import useInput from "../hooks/useInput";
-import { addTodo } from "../redux/slices/TodoSlice";
+import { addTodo } from "../redux/slices/todoSlice";
 
 const TodoForm = () => {
   const [title, onChangeTitleHandler, resetTitle] = useInput("");

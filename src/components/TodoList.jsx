@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Msg, StyleBox } from "../styled-components/styled-todoList";
 import TodoItem from "./TodoItem";
-import { deleteTodo, updateTodo } from "../redux/slices/TodoSlice";
+import { deleteTodo, updateTodo } from "../redux/slices/todoSlice";
 
 const TodoList = () => {
   const todos = useSelector((state) => state.todo);
