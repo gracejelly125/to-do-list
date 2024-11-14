@@ -5,6 +5,7 @@ import TodoList from "./components/TodoList";
 import { useSelector } from "react-redux";
 
 const App = () => {
+  // const [isWorking, setIsWorking] = useState(true);
   const todos = useSelector((state) => state.todo);
 
   useEffect(() => {

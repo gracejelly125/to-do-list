@@ -22,8 +22,6 @@ const TodoForm = () => {
       finished: false,
     };
 
-    console.log("newTodo =>", newTodo);
-
     dispatch(addTodo(newTodo));
     resetTitle();
     resetContent();
