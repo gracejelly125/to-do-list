@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const [isWorking, setIsWorking] = useState(true);
+  const todos = useSelector((state) => state.todo);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <>
       <Header />
-      <TodoForm isWorking={isWorking} />
-      <TodoList isWorking={isWorking} setIsWorking={setIsWorking} />
+      <TodoForm />
+      <TodoList />
     </>
   );
 };

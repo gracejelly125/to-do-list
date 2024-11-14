@@ -3,8 +3,8 @@ import { Container, Msg, StyleBox } from "../styled-components/styled-todoList";
 import TodoItem from "./TodoItem";
 import { deleteTodo, updateTodo } from "../redux/slices/TodoSlice";
 
-const TodoList = ({ isWorking }) => {
-  const todos = useSelector((state) => state.todo.todos);
+const TodoList = () => {
+  const todos = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
   const handleDeleteTodo = (todoToDelete) => {

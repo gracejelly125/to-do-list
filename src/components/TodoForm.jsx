@@ -7,7 +7,7 @@ import {
 import useInput from "../hooks/useInput";
 import { addTodo } from "../redux/slices/TodoSlice";
 
-const TodoForm = ({ isWorking }) => {
+const TodoForm = () => {
   const [title, onChangeTitleHandler, resetTitle] = useInput("");
   const [content, onChangeContentHandler, resetContent] = useInput("");
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ const TodoForm = ({ isWorking }) => {
       id: Date.now(),
       title,
       content,
-      isWorking,
       finished: false,
     };
 
