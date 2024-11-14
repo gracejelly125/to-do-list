@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import workingSlice from "../slices/workingSlice";
-import doneSlice from "../slices/doneSlice";
+import todoSlice from "../slices/todoSlice"
 
 const store = configureStore({
   reducer: {
-    working: workingSlice,
-    done: doneSlice,
+    todo: todoSlice,
   },
 });
 

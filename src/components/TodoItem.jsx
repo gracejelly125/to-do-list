@@ -14,15 +14,16 @@ const TodoItem = ({
   deleteButtonHandler,
   cancelButtonHandler,
 }) => {
+  console.log("todo =>", todo);
   return (
     <StyleWorking>
       <Title>{todo.title}</Title>
       <Content>{todo.content}</Content>
       <ButtonGroup>
-        <Button type="button" onClick={() => deleteButtonHandler(todo.id)}>
+        <Button type="button" onClick={() => deleteButtonHandler(todo)}>
           삭제하기
         </Button>
-        <Button type="button" onClick={() => cancelButtonHandler(todo.id)}>
+        <Button type="button" onClick={() => cancelButtonHandler(todo)}>
           {buttonText}
         </Button>
       </ButtonGroup>

@@ -10,19 +10,22 @@ export const StyleBox = styled.div`
 `;
 
 export const StyleWorking = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   margin: 20px;
-  padding: 10px;
+  padding: 8px 8px 8px 18px;
   border: 1px solid red;
   border-radius: 10px;
-  width: 200px;
+  width: 220px;
   height: 120px;
-  align-content: center;
 `;
 
 export const Msg = styled.p`
   margin: 20px;
   text-align: center;
-`
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -32,25 +35,22 @@ export const Container = styled.div`
 export const Title = styled.p`
   font-size: 18px;
   font-weight: bold;
-  text-align: left;
-  margin: 10px 0;
 `;
 
 export const Content = styled.p`
-  font-size: 16px;
-  text-align: left;
-  margin: 10px 0;
+  font-size: 15px;
+  margin: 18px 0;
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 10px;
 `;
 
 export const Button = styled.button`
   width: 100px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   background-color: green;
   color: white;
   padding: 6px;
@@ -78,5 +78,4 @@ export const StyleTodoForm = styled.div`
     border: 1px solid red;
     border-radius: 8px;
   }
-
 `;

@@ -1,25 +1,33 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   Button,
   StyleBox,
   StyleTodoForm,
 } from "../styled-components/styled-todoList";
-import { addTodo } from "../redux/slices/workingSlice";
-import { useState } from "react";
+import useInput from "../hooks/useInput";
+import { addTodo } from "../redux/slices/TodoSlice";
 
-const TodoForm = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  const todos = useSelector((state) => state.working);
+const TodoForm = ({ isWorking }) => {
+  const [title, onChangeTitleHandler, resetTitle] = useInput("");
+  const [content, onChangeContentHandler, resetContent] = useInput("");
   const dispatch = useDispatch();
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    const newTodo = { id: Date.now(), title, content };
+
+    const newTodo = {
+      id: Date.now(),
+      title,
+      content,
+      isWorking,
+      finished: false,
+    };
+
+    console.log("newTodo =>", newTodo);
+
     dispatch(addTodo(newTodo));
-    setTitle("");
-    setContent("");
+    resetTitle();
+    resetContent();
   };
 
   return (
@@ -33,7 +41,7 @@ const TodoForm = () => {
               type="text"
               placeholder="제목을 입력해주세요."
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={onChangeTitleHandler}
               required
             />
             <p>내용</p>
@@ -41,7 +49,7 @@ const TodoForm = () => {
               type="text"
               placeholder="내용을 입력해주세요."
               value={content}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={onChangeContentHandler}
               required
             />
             <Button type="submit" $primary>
